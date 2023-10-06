@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.bozhko.labs"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.bozhko.labs"
