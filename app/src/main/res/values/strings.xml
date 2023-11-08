@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">labs</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_frag_one">hi from fragment one</string>
+    <string name="hello_frag_two">hi from fragment two</string>
 </resources>

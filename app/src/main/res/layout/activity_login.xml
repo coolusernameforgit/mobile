@@ -5,6 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <Button
+        android:id="@+id/button_reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="reset"
+        app:layout_constraintEnd_toEndOf="@+id/chb_autologin"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/button_Login"
+        app:layout_constraintTop_toBottomOf="@+id/chb_autologin" />
+
     <Space
         android:id="@+id/space"
         android:layout_width="30dp"
@@ -75,20 +85,20 @@
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <EditText
-        android:id="@+id/editTextTextPassword2"
+        android:id="@+id/et_pass_log"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="textPassword"
         android:text="Password"
-        app:layout_constraintEnd_toEndOf="@+id/editTextText"
+        app:layout_constraintEnd_toEndOf="@+id/et_id_log"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/editTextText"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText" />
+        app:layout_constraintStart_toStartOf="@+id/et_id_log"
+        app:layout_constraintTop_toBottomOf="@+id/et_id_log" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/et_id_log"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginTop="40dp"
@@ -100,24 +110,24 @@
         app:layout_constraintTop_toBottomOf="@+id/space5" />
 
     <CheckBox
-        android:id="@+id/checkBox"
+        android:id="@+id/chb_autologin"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_marginTop="8dp"
         android:text="Входить автоматически"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword2"
+        app:layout_constraintEnd_toEndOf="@+id/et_pass_log"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPassword2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword2" />
+        app:layout_constraintStart_toStartOf="@+id/et_pass_log"
+        app:layout_constraintTop_toBottomOf="@+id/et_pass_log" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/button_Login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Войти"
-        app:layout_constraintEnd_toEndOf="@+id/checkBox"
+        app:layout_constraintEnd_toEndOf="@+id/chb_autologin"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/checkBox"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+        app:layout_constraintStart_toStartOf="@+id/chb_autologin"
+        app:layout_constraintTop_toBottomOf="@+id/chb_autologin" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

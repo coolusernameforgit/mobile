@@ -1,5 +1,7 @@
 package com.bozhko.labs
 
+import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.text.InputType
@@ -8,6 +10,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
+import com.bozhko.labs.MainActivity
 
 class RegistrationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,42 +44,51 @@ class RegistrationActivity : AppCompatActivity() {
         bReg.setOnClickListener {
             val result = validateInput(etId, etPass, etPassRep)
             if (result) {
-                val toast = Toast.makeText(this,
-                    "Регистрация успешна",
-                    Toast.LENGTH_SHORT)
-                toast.show()
+                MainActivity.Companion.writeToSharedPrefs(this, mapOf(
+                    "id" to etId.text.toString(),
+                    "password" to etPass.text.toString()))
+                val intent = Intent(this, ContentActivity::class.java)
+                startActivity(intent)
             }
+        }
+
+        val bReset = findViewById<Button>(R.id.b_reset)
+        bReset.setOnClickListener {
+            MainActivity.Companion.resetSharedPrefs(this)
         }
     }
 
     private fun validateInput(etId: EditText, etPass: EditText, etPassRep: EditText): Boolean {
+        return validateId(etId) && validatePass(etPass, etPassRep)
+    }
+
+    private fun validateId(etId: EditText): Boolean {
         if (etId.hint == "Почта" && !etId.text.contains("@")) {
-            val toast = Toast.makeText(this,
-                "Неправильно введена почта: отсутствует @",
+            val toast = Toast.makeText(this, "Неправильно введена почта: отсутствует @",
                 Toast.LENGTH_LONG)
             toast.show()
             return false
         }
 
         if (etId.hint == "Номер телефона" && !etId.text.contains("+")) {
-            val toast = Toast.makeText(this,
-                "Неправильно введен номер: отсутствует +",
+            val toast = Toast.makeText(this, "Неправильно введен номер: отсутствует +",
                 Toast.LENGTH_LONG)
             toast.show()
             return false
         }
+        return true
+    }
 
+    private fun validatePass(etPass: EditText, etPassRep: EditText): Boolean {
         if (etPass.length() < 8) {
-            val toast = Toast.makeText(this,
-                "Неправильно введен пароль: символов меньше 8",
+            val toast = Toast.makeText(this, "Неправильно введен пароль: символов меньше 8",
                 Toast.LENGTH_LONG)
             toast.show()
             return false
         }
 
         if (etPass.text.toString() != etPassRep.text.toString()) {
-            val toast = Toast.makeText(this,
-                "Введенные пароли не совпадают",
+            val toast = Toast.makeText(this, "Введенные пароли не совпадают",
                 Toast.LENGTH_LONG)
             toast.show()
             return false
