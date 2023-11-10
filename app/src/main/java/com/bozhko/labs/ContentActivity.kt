@@ -16,7 +16,8 @@ class ContentActivity : AppCompatActivity() {
         navController = Navigation.findNavController(this, R.id.fragment_container)
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_nav)
         bottomNav.setupWithNavController(navController)
-        //вызов сплеш фрагмента
+        val id = R.layout.fragment_splash
+        navController.navigate(id)
     }
 
     companion object {

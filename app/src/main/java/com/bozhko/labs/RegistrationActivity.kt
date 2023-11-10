@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 class RegistrationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_registration)
+        setContentView(R.layout.fragment_registration)
 
         val bPhone = findViewById<Button>(R.id.b_phone)
         val bEmail = findViewById<Button>(R.id.b_email)
@@ -41,7 +41,7 @@ class RegistrationActivity : AppCompatActivity() {
         bReg.setOnClickListener {
             val result = validateInput(etId, etPass, etPassRep)
             if (result) {
-                MainActivity.Companion.writeToSharedPrefs(this, mapOf(
+                ContentActivity.Companion.writeToSharedPrefs(this, mapOf(
                     "id" to etId.text.toString(),
                     "password" to etPass.text.toString()))
                 val intent = Intent(this, ContentActivity::class.java)
@@ -51,7 +51,7 @@ class RegistrationActivity : AppCompatActivity() {
 
         val bReset = findViewById<Button>(R.id.b_reset)
         bReset.setOnClickListener {
-            MainActivity.Companion.resetSharedPrefs(this)
+            ContentActivity.Companion.resetSharedPrefs(this)
         }
     }
 

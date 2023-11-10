@@ -12,14 +12,14 @@ import android.widget.Toast
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.fragment_login)
 
         val bLogin = findViewById<Button>(R.id.button_Login)
         bLogin.setOnClickListener {
             val result = validateInput()
             if (result) {
                 val chbAutologin = findViewById<CheckBox>(R.id.chb_autologin)
-                MainActivity.Companion.writeToSharedPrefs(this,
+                ContentActivity.Companion.writeToSharedPrefs(this,
                     mapOf("autologin" to chbAutologin.isChecked.toString()))
                 val intent = Intent(this, ContentActivity::class.java)
                 startActivity(intent)
@@ -32,7 +32,7 @@ class LoginActivity : AppCompatActivity() {
 
         val bReset = findViewById<Button>(R.id.button_reset)
         bReset.setOnClickListener {
-            MainActivity.Companion.resetSharedPrefs(this)
+            ContentActivity.Companion.resetSharedPrefs(this)
         }
     }
 
