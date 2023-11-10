@@ -9,8 +9,6 @@ import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.Toast
 
-import com.bozhko.labs.MainActivity
-
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
