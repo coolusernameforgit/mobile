@@ -8,7 +8,7 @@
     android:layout_marginTop="30dp"
     android:layout_marginLeft="30dp"
     android:layout_marginRight="30dp"
-    tools:context=".LoginActivity" >
+    tools:context=".RegistrationFragment" >
 
     <TextView
         android:id="@+id/t_hi"

@@ -2,8 +2,19 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FragmentOne">
-
+    app:startDestination="@id/SplashFragment">
+    <fragment
+        android:id="@+id/SplashFragment"
+        android:name="com.bozhko.labs.SplashFragment"
+        android:label="SplashFragment" />
+    <fragment
+        android:id="@+id/RegistrationFragment"
+        android:name="com.bozhko.labs.RegistrationFragment"
+        android:label="RegistrationFragment" />
+    <fragment
+        android:id="@+id/LoginFragment"
+        android:name="com.bozhko.labs.LoginFragment"
+        android:label="LoginFragment" />
     <fragment
         android:id="@+id/FragmentOne"
         android:name="com.bozhko.labs.FragmentOne"
@@ -12,4 +23,5 @@
         android:id="@+id/FragmentTwo"
         android:name="com.bozhko.labs.FragmentTwo"
         android:label="FragmentTwo" />
+
 </navigation>
