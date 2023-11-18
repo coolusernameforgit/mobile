@@ -23,10 +23,10 @@ class SplashFragment : Fragment() {
                 navController.navigate(R.id.FragmentOne)
             }
             "login" -> {
-                navController.navigate(R.id.FragmentTwo)
+                navController.navigate(R.id.LoginFragment)
             }
             "register" -> {
-                navController.navigate(R.id.FragmentTwo)
+                navController.navigate(R.id.RegistrationFragment)
             }
         }
 
