@@ -19,9 +19,6 @@ class SplashFragment : Fragment() {
         val navController = NavHostFragment.findNavController(this)
 
         when (checkSharedPrefs()) {
-            "autologin" -> {
-                navController.navigate(R.id.FragmentOne)
-            }
             "login" -> {
                 navController.navigate(R.id.LoginFragment)
             }
@@ -36,10 +33,7 @@ class SplashFragment : Fragment() {
     private fun checkSharedPrefs(): String {
         val sharedPrefs = requireActivity().getSharedPreferences("settings", Context.MODE_PRIVATE)
         if (sharedPrefs.contains("id") && sharedPrefs.contains("password")) {
-            return if (sharedPrefs.getString("autologin", "false") == "true")
-                "autologin"
-            else
-                "login"
+            return "login"
         }
         return "register"
     }

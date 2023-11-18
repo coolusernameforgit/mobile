@@ -6,19 +6,41 @@
     <fragment
         android:id="@+id/SplashFragment"
         android:name="com.bozhko.labs.SplashFragment"
-        android:label="SplashFragment" />
+        android:label="SplashFragment" >
+        <action
+            android:id="@+id/action_SplashFragment_to_LoginFragment"
+            app:destination="@id/LoginFragment" />
+        <action
+            android:id="@+id/action_SplashFragment_to_RegistrationFragment"
+            app:destination="@id/RegistrationFragment" />
+        <action
+            android:id="@+id/action_SplashFragment_to_FragmentOne"
+            app:destination="@id/FragmentOne" />
+    </fragment>
     <fragment
         android:id="@+id/RegistrationFragment"
         android:name="com.bozhko.labs.RegistrationFragment"
-        android:label="RegistrationFragment" />
+        android:label="RegistrationFragment" >
+        <action
+            android:id="@+id/action_RegistrationFragment_to_FragmentTwo"
+            app:destination="@id/FragmentTwo" />
+    </fragment>
     <fragment
         android:id="@+id/LoginFragment"
         android:name="com.bozhko.labs.LoginFragment"
-        android:label="LoginFragment" />
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_LoginFragment_to_FragmentTwo"
+            app:destination="@id/FragmentTwo" />
+    </fragment>
     <fragment
         android:id="@+id/FragmentOne"
         android:name="com.bozhko.labs.FragmentOne"
-        android:label="FragmentOne" />
+        android:label="FragmentOne" >
+        <action
+            android:id="@+id/action_FragmentOne_to_FragmentTwo"
+            app:destination="@id/FragmentTwo" />
+    </fragment>
     <fragment
         android:id="@+id/FragmentTwo"
         android:name="com.bozhko.labs.FragmentTwo"

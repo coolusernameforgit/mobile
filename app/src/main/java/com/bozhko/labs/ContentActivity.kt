@@ -10,6 +10,7 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import androidx.navigation.fragment.NavHostFragment
 
 class ContentActivity : AppCompatActivity() {
     private lateinit var navController: NavController
@@ -19,12 +20,9 @@ class ContentActivity : AppCompatActivity() {
         navController = Navigation.findNavController(this, R.id.fragment_container)
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_nav)
         bottomNav.setupWithNavController(navController)
-<<<<<<< HEAD
-        val id = R.layout.fragment_splash
-        navController.navigate(id)
-=======
+
         navController.navigate(R.id.SplashFragment)
->>>>>>> newbranch
+
     }
 
     companion object {

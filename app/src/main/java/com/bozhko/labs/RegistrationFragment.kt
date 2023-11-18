@@ -14,6 +14,8 @@ import androidx.navigation.fragment.NavHostFragment
 import android.graphics.Color
 import android.widget.Toast
 import androidx.fragment.app.FragmentManager
+import androidx.navigation.Navigation
+import com.google.firebase.auth.FirebaseAuth
 
 class RegistrationFragment : Fragment() {
     override fun onCreateView(
@@ -48,16 +50,24 @@ class RegistrationFragment : Fragment() {
 
         bReg.setOnClickListener {
             if (validateInput(etId, etPass, etPassRep)) {
+                val id = etId.text.toString()
+                val password = etPass.text.toString()
+
                 ContentActivity.Companion.writeToSharedPrefs(
                     requireActivity().getSharedPreferences("settings", Context.MODE_PRIVATE),
                     mapOf(
-                        "id" to etId.text.toString(),
-                        "password" to etPass.text.toString()
+                        "id" to id,
+                        "password" to password
                     )
                 )
 
-                val navController = NavHostFragment.findNavController(this)
-                navController.navigate(R.id.FragmentOne)
+                val auth = FirebaseAuth.getInstance()
+                auth.createUserWithEmailAndPassword(id, password)
+                    .addOnCompleteListener {
+                        task -> if (task.isSuccessful) {
+                        NavHostFragment.findNavController(this).navigate(R.id.FragmentOne)
+                    }
+                }
             }
         }
 
@@ -102,6 +112,8 @@ class RegistrationFragment : Fragment() {
                 Toast.LENGTH_LONG).show()
             return false
         }
+        val pass = etPass.text.toString()
+        Toast.makeText(activity, "password: ${pass}".format(), Toast.LENGTH_LONG).show()
         return true
     }
 }

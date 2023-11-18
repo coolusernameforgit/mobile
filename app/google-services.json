@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "93729105150",
+    "project_id": "projectqwe-301e2",
+    "storage_bucket": "projectqwe-301e2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:93729105150:android:d25a0f04e9c28bf0ae71af",
+        "android_client_info": {
+          "package_name": "com.bozhko.labs"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJAIgChhKr70rPYWGgsd073sP5-bPUMpc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
